@@ -21,11 +21,39 @@ def add_task():
     print("Task dded successfully.")
 
 def mark_task_as_done():
-    pass
-   
+    # get list of incomplete tasks
+    incomplete_tasks = [task for task in tasks if task["done"] == False]
+    # check if there are no incomplete tasks
+    if not incomplete_tasks:
+        print("No incomplete tasks found.")
+        return
+    # show them to the user
+    for index, task in enumerate(incomplete_tasks):
+        print(f"{index + 1}. {task['task']}")
+        print("-" * 20 )
+    # ask user to select a task to mark as done
+    task_number = input("Enter the number of the task you want to mark as done: ").strip()
+    # check if the task number is valid
+    if task_number.isdigit() and 1 <= int(task_number) <= len(incomplete_tasks):
+        task_index = int(task_number) - 1
+        tasks[tasks.index(incomplete_tasks[task_index])]["done"] = True
+        print("Task marked as done successfully.")
+    else:
+        print("Invalid task number. Please try again.")
+    
+    
 def view_tasks():
-    ...
-
+    # check if there are no tasks
+    if not tasks:
+        print("No tasks found.")
+        return
+    # show all taks
+    for index, task in enumerate(tasks):
+        status = "✔" if task["done"] else "✘"
+        print(f"{index + 1} - {task['task']} [{status}]")
+    
+    
+        
 tasks = []
 while True:
     print(Message)
