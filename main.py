@@ -19,11 +19,13 @@ def add_task():
     # add task to the list
     tasks.append(task_info)
     print("Task dded successfully.")
-    
-def view_tasks():
-    ...
+
 def mark_task_as_done():
     pass
+   
+def view_tasks():
+    ...
+
 tasks = []
 while True:
     print(Message)
