@@ -10,14 +10,21 @@ Welcome to the Task Manager!
 3 - View all tasks
 4 - Quit the program
 """
-tasks = []
+
 def add_task():
-    pass
+    # get task from user
+    task = input("Enter the task you want to add: ").strip()
+    # define task status
+    task_info = { "task" : task, "done": False }
+    # add task to the list
+    tasks.append(task_info)
+    print("Task dded successfully.")
+    
 def view_tasks():
     ...
 def mark_task_as_done():
     pass
-
+tasks = []
 while True:
     print(Message)
     input_value = input("Please select an option (1-4): ").strip()
